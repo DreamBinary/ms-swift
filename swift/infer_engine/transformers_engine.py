@@ -58,6 +58,7 @@ class TransformersEngine(InferEngine):
             adapter_names: Optional[List[str]] = None,
             max_batch_size: int = 1,  # 0/1: no limit
             reranker_use_activation: bool = True,
+            strict: bool = False,
             # model kwargs
             torch_dtype: Optional[torch.dtype] = None,
             model_type: Optional[str] = None,
@@ -87,6 +88,7 @@ class TransformersEngine(InferEngine):
         self.task_type = task_type
         self.quantization_config = quantization_config
         self.model_kwargs = model_kwargs
+        self.strict = strict
 
         self.use_hf = use_hf
         self.revision = revision
